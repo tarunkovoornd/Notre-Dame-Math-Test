@@ -1,3 +1,5 @@
+# Notre-Dame-Math-Test
+This is a web app used to help incoming Notre Dame students get integrated into the Notre Dame math system.
 # NotreDameMathTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
