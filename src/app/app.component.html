@@ -22,11 +22,14 @@
             <h1>Welcome to the Math Testing App</h1>
             <p>Start your journey to mastering math by taking a test or practicing.</p>
             <button onclick="location.href='#tests'">Start a Test</button>
-            <button onclick="location.href='#practice'">Practice Now</button>
+            <button (click)="onPracticeNowClick()">Practice Now</button>
+        </section>
+        <section class="question-section" *ngIf="showQuestions">
+            <app-question></app-question>
         </section>
     </main>
     <footer>
         <p>Copyright © 2024 Math Testing App</p>
-    </footer>
+    </footer> 
 </body>
 </html>
