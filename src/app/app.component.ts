@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionComponent } from './question/question.component';
 
@@ -13,7 +13,10 @@ export class AppComponent {
   title = 'notre-dame-math-test';
   showQuestions = false;
 
+  @ViewChild(QuestionComponent) questionComponent!: QuestionComponent;
+
   onPracticeNowClick() {
     this.showQuestions = true;
+    this.questionComponent.generateRandomQuestions();
   }
 }

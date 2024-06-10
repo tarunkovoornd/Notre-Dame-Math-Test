@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+interface Question {
+  text: string;
+  options: (number | string)[];
+  correctAnswer: number | string;
+}
 
 @Component({
   selector: 'app-question',
@@ -8,8 +14,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css']
 })
-export class QuestionComponent {
-  questions = [
+export class QuestionComponent implements OnInit {
+  allQuestions: Question[] = [
     {
       text: 'What is the solution to the equation 2x + 3 = 7?',
       options: [1, 2, 3, 4],
@@ -62,9 +68,22 @@ export class QuestionComponent {
     }
   ];
 
-  userAnswers: (number | string)[] = Array(this.questions.length).fill(null);
+  questions: Question[] = [];
+  userAnswers: (number | string)[] = [];
   showResults = false;
   results: string[] = [];
+
+  ngOnInit() {
+    this.generateRandomQuestions();
+  }
+
+  generateRandomQuestions() {
+    const shuffledQuestions = this.allQuestions.sort(() => 0.5 - Math.random());
+    this.questions = shuffledQuestions.slice(0, 5);
+    this.userAnswers = Array(this.questions.length).fill(null);
+    this.showResults = false;
+    this.results = [];
+  }
 
   selectAnswer(index: number, answer: number | string) {
     this.userAnswers[index] = answer;

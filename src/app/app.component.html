@@ -23,9 +23,7 @@
             <p>Start your journey to mastering math by taking a test or practicing.</p>
             <button onclick="location.href='#tests'">Start a Test</button>
             <button (click)="onPracticeNowClick()">Practice Now</button>
-        </section>
-        <section class="question-section" *ngIf="showQuestions">
-            <app-question></app-question>
+            <app-question *ngIf="showQuestions"></app-question>        
         </section>
     </main>
     <footer>
